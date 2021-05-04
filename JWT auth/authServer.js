@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+// Access Token Expires in 30 second
 const express = require('express')
 const jwt = require("jsonwebtoken");
 const app = express()
@@ -41,7 +41,7 @@ app.post('/login',(req, res) => {
 })
 
 function generateAccessToken(user){
-    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s'})
+    return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '30s'})
 }
 
 
